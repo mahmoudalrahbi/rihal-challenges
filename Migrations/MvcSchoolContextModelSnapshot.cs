@@ -22,7 +22,6 @@ namespace School.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("name")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("id");

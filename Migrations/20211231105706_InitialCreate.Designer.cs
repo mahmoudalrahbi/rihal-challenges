@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace School.Migrations
 {
     [DbContext(typeof(MvcSchoolContext))]
-    [Migration("20211231105444_InitialCreate")]
+    [Migration("20211231105706_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,7 +24,6 @@ namespace School.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("name")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("id");

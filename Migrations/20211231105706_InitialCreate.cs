@@ -14,7 +14,7 @@ namespace School.Migrations
                 {
                     id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    name = table.Column<string>(type: "TEXT", nullable: false)
+                    name = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
