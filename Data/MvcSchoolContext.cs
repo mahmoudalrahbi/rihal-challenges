@@ -14,4 +14,6 @@ using School.Models;
         }
 
         public DbSet<School.Models.Countries> Countries { get; set; }
+
+        public DbSet<School.Models.Classes> Classes { get; set; }
     }
