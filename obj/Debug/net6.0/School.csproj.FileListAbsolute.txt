@@ -292,7 +292,6 @@ D:\rihalChallange\School\obj\Debug\net6.0\staticwebassets.development.json
 D:\rihalChallange\School\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 D:\rihalChallange\School\obj\Debug\net6.0\scopedcss\bundle\School.styles.css
 D:\rihalChallange\School\obj\Debug\net6.0\scopedcss\projectbundle\School.bundle.scp.css
-D:\rihalChallange\School\obj\Debug\net6.0\School.csproj.CopyComplete
 D:\rihalChallange\School\obj\Debug\net6.0\School.dll
 D:\rihalChallange\School\obj\Debug\net6.0\ref\School.dll
 D:\rihalChallange\School\obj\Debug\net6.0\School.pdb
