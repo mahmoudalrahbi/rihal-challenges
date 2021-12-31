@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace School.Models
 {
-    public class Countries
+    public class Countries: BaseEntity
     {
         public int id { get; set; }
 

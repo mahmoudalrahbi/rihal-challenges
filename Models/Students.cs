@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace School.Models
 {
-    public class Students
+    public class Students: BaseEntity
     {
         public int id { get; set; }
         public string? name { get; set; }
