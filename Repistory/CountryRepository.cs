@@ -37,7 +37,7 @@ namespace School.Repistory
         _context.SaveChanges();
         }
 
-        public List<Country> getAllClasses()
+        public List<Country> getAllCoiuntries()
         {
             return  _context.Countries.ToList();
         }

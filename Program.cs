@@ -12,10 +12,12 @@ builder.Services.AddDbContext<MvcSchoolContext>(options =>
 
 //add repistories
 builder.Services.AddTransient<IClassRepository, ClassRepository>();
+builder.Services.AddTransient<ICountryRepository, CountryRepository>();
 
 
 //add services
 builder.Services.AddTransient<IClassService, ClassService>();
+builder.Services.AddTransient<ICountryService, CountryService>();
 
 
 

@@ -1,8 +1,8 @@
 using School.Models;
 
-namespace School.Repistory.Interfaces
+namespace School.Services.Interfaces
 {
-    public interface ICountryRepository
+    public interface ICountryService
     {
         Country getCountry(int id);
         List<Country> getAllCoiuntries();
@@ -11,6 +11,5 @@ namespace School.Repistory.Interfaces
         void deleteCountry(int id);
 
         bool countryExists(int id);
-        
     }
 }

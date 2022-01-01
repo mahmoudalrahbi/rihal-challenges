@@ -7,22 +7,24 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using School.Models;
+using School.Services.Interfaces;
 
 namespace School.Controllers
 {
     public class CountryController : Controller
     {
-        private readonly MvcSchoolContext _context;
+        // private readonly MvcSchoolContext _context;
+        private readonly ICountryService _countryService;
 
-        public CountryController(MvcSchoolContext context)
+        public CountryController(ICountryService countryService)
         {
-            _context = context;
+            _countryService = countryService;
         }
 
         // GET: Country
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Countries.ToListAsync());
+            return View(_countryService.getAllCoiuntries());
         }
 
         // GET: Country/Details/5
@@ -33,8 +35,7 @@ namespace School.Controllers
                 return NotFound();
             }
 
-            var country = await _context.Countries
-                .FirstOrDefaultAsync(m => m.id == id);
+            var country = _countryService.getCountry((int)id);
             if (country == null)
             {
                 return NotFound();
@@ -58,8 +59,7 @@ namespace School.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(country);
-                await _context.SaveChangesAsync();
+               _countryService.addCountry(country);
                 return RedirectToAction(nameof(Index));
             }
             return View(country);
@@ -73,7 +73,7 @@ namespace School.Controllers
                 return NotFound();
             }
 
-            var country = await _context.Countries.FindAsync(id);
+            var country = _countryService.getCountry((int)id);
             if (country == null)
             {
                 return NotFound();
@@ -97,8 +97,7 @@ namespace School.Controllers
             {
                 try
                 {
-                    _context.Update(country);
-                    await _context.SaveChangesAsync();
+                    _countryService.editCountry(country);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -124,8 +123,7 @@ namespace School.Controllers
                 return NotFound();
             }
 
-            var country = await _context.Countries
-                .FirstOrDefaultAsync(m => m.id == id);
+            var country = _countryService.getCountry((int)id);
             if (country == null)
             {
                 return NotFound();
@@ -139,15 +137,13 @@ namespace School.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var country = await _context.Countries.FindAsync(id);
-            _context.Countries.Remove(country);
-            await _context.SaveChangesAsync();
+            _countryService.deleteCountry(id);
             return RedirectToAction(nameof(Index));
         }
 
         private bool CountryExists(int id)
         {
-            return _context.Countries.Any(e => e.id == id);
+            return _countryService.countryExists(id);
         }
     }
 }
