@@ -7,22 +7,24 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using School.Models;
+using School.Services.Interfaces;
 
 namespace School.Controllers
 {
     public class ClassController : Controller
     {
-        private readonly MvcSchoolContext _context;
+        // private readonly MvcSchoolContext _context;
+        private readonly IClassService _classService;
 
-        public ClassController(MvcSchoolContext context)
+        public ClassController(IClassService classService)
         {
-            _context = context;
+            _classService = classService;
         }
 
         // GET: Class
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Classes.ToListAsync());
+            return View(_classService.getAllClasses());
         }
 
         // GET: Class/Details/5
@@ -33,8 +35,7 @@ namespace School.Controllers
                 return NotFound();
             }
 
-            var @class = await _context.Classes
-                .FirstOrDefaultAsync(m => m.id == id);
+            var @class = _classService.getClass((int)id);
             if (@class == null)
             {
                 return NotFound();
@@ -58,8 +59,7 @@ namespace School.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(@class);
-                await _context.SaveChangesAsync();
+                _classService.addClass(@class);
                 return RedirectToAction(nameof(Index));
             }
             return View(@class);
@@ -73,7 +73,7 @@ namespace School.Controllers
                 return NotFound();
             }
 
-            var @class = await _context.Classes.FindAsync(id);
+            var @class = _classService.getClass((int)id);
             if (@class == null)
             {
                 return NotFound();
@@ -97,8 +97,7 @@ namespace School.Controllers
             {
                 try
                 {
-                    _context.Update(@class);
-                    await _context.SaveChangesAsync();
+                    _classService.editClass(@class);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -124,8 +123,7 @@ namespace School.Controllers
                 return NotFound();
             }
 
-            var @class = await _context.Classes
-                .FirstOrDefaultAsync(m => m.id == id);
+            var @class =  _classService.getClass((int)id);
             if (@class == null)
             {
                 return NotFound();
@@ -139,15 +137,13 @@ namespace School.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var @class = await _context.Classes.FindAsync(id);
-            _context.Classes.Remove(@class);
-            await _context.SaveChangesAsync();
+            _classService.deleteClass(id);
             return RedirectToAction(nameof(Index));
         }
 
         private bool ClassExists(int id)
         {
-            return _context.Classes.Any(e => e.id == id);
+            return _classService.classExists(id);
         }
     }
 }
