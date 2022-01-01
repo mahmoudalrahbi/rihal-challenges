@@ -1,9 +1,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using School.Repistory;
+using School.Repistory.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<MvcSchoolContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("MvcSchoolContext")));
+
+//add repistories
+builder.Services.AddTransient<IClassesRepository, ClassesRepository>();
+
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

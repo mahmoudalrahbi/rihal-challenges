@@ -16298,6 +16298,11 @@
   "RootNamespace": "School",
   "Documents": [
     {
+      "FilePath": "d:\\rihalChallange\\School\\Views\\Country\\Details.cshtml",
+      "TargetPath": "Views\\Country\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\rihalChallange\\School\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
@@ -16313,18 +16318,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\rihalChallange\\School\\Views\\Students\\Delete.cshtml",
-      "TargetPath": "Views\\Students\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "d:\\rihalChallange\\School\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\rihalChallange\\School\\Views\\Classes\\Index.cshtml",
-      "TargetPath": "Views\\Classes\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16333,13 +16328,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\rihalChallange\\School\\Views\\Countries\\Index.cshtml",
-      "TargetPath": "Views\\Countries\\Index.cshtml",
+      "FilePath": "d:\\rihalChallange\\School\\Views\\Country\\Index.cshtml",
+      "TargetPath": "Views\\Country\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\rihalChallange\\School\\Views\\Classes\\Edit.cshtml",
-      "TargetPath": "Views\\Classes\\Edit.cshtml",
+      "FilePath": "d:\\rihalChallange\\School\\Views\\Country\\Create.cshtml",
+      "TargetPath": "Views\\Country\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16348,58 +16343,63 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\rihalChallange\\School\\Views\\Classes\\Details.cshtml",
-      "TargetPath": "Views\\Classes\\Details.cshtml",
+      "FilePath": "d:\\rihalChallange\\School\\Views\\Country\\Edit.cshtml",
+      "TargetPath": "Views\\Country\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\rihalChallange\\School\\Views\\Countries\\Details.cshtml",
-      "TargetPath": "Views\\Countries\\Details.cshtml",
+      "FilePath": "d:\\rihalChallange\\School\\Views\\Student\\Index.cshtml",
+      "TargetPath": "Views\\Student\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\rihalChallange\\School\\Views\\Countries\\Edit.cshtml",
-      "TargetPath": "Views\\Countries\\Edit.cshtml",
+      "FilePath": "d:\\rihalChallange\\School\\Views\\Student\\Details.cshtml",
+      "TargetPath": "Views\\Student\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\rihalChallange\\School\\Views\\Students\\Create.cshtml",
-      "TargetPath": "Views\\Students\\Create.cshtml",
+      "FilePath": "d:\\rihalChallange\\School\\Views\\Class\\Delete.cshtml",
+      "TargetPath": "Views\\Class\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\rihalChallange\\School\\Views\\Countries\\Create.cshtml",
-      "TargetPath": "Views\\Countries\\Create.cshtml",
+      "FilePath": "d:\\rihalChallange\\School\\Views\\Student\\Create.cshtml",
+      "TargetPath": "Views\\Student\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\rihalChallange\\School\\Views\\Students\\Edit.cshtml",
-      "TargetPath": "Views\\Students\\Edit.cshtml",
+      "FilePath": "d:\\rihalChallange\\School\\Views\\Class\\Edit.cshtml",
+      "TargetPath": "Views\\Class\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\rihalChallange\\School\\Views\\Students\\Index.cshtml",
-      "TargetPath": "Views\\Students\\Index.cshtml",
+      "FilePath": "d:\\rihalChallange\\School\\Views\\Student\\Delete.cshtml",
+      "TargetPath": "Views\\Student\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\rihalChallange\\School\\Views\\Classes\\Create.cshtml",
-      "TargetPath": "Views\\Classes\\Create.cshtml",
+      "FilePath": "d:\\rihalChallange\\School\\Views\\Country\\Delete.cshtml",
+      "TargetPath": "Views\\Country\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\rihalChallange\\School\\Views\\Countries\\Delete.cshtml",
-      "TargetPath": "Views\\Countries\\Delete.cshtml",
+      "FilePath": "d:\\rihalChallange\\School\\Views\\Class\\Details.cshtml",
+      "TargetPath": "Views\\Class\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\rihalChallange\\School\\Views\\Students\\Details.cshtml",
-      "TargetPath": "Views\\Students\\Details.cshtml",
+      "FilePath": "d:\\rihalChallange\\School\\Views\\Class\\Create.cshtml",
+      "TargetPath": "Views\\Class\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\rihalChallange\\School\\Views\\Classes\\Delete.cshtml",
-      "TargetPath": "Views\\Classes\\Delete.cshtml",
+      "FilePath": "d:\\rihalChallange\\School\\Views\\Class\\Index.cshtml",
+      "TargetPath": "Views\\Class\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\rihalChallange\\School\\Views\\Student\\Edit.cshtml",
+      "TargetPath": "Views\\Student\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {

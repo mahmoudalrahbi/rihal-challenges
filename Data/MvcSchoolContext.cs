@@ -13,11 +13,11 @@ public class MvcSchoolContext : DbContext
     {
     }
 
-    public DbSet<School.Models.Countries> Countries { get; set; }
+    public DbSet<School.Models.Country> Countries { get; set; }
 
-    public DbSet<School.Models.Classes> Classes { get; set; }
+    public DbSet<School.Models.Class> Classes { get; set; }
 
-    public DbSet<School.Models.Students> Students { get; set; }
+    public DbSet<School.Models.Student> Students { get; set; }
 
 
 
