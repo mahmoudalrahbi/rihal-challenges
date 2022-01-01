@@ -33,16 +33,7 @@
                 <select asp-for="CountriesId" class="form-control" asp-items="ViewBag.CountriesId"></select>
                 <span asp-validation-for="CountriesId" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="created_date" class="control-label"></label>
-                <input asp-for="created_date" class="form-control" />
-                <span asp-validation-for="created_date" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="modified_date" class="control-label"></label>
-                <input asp-for="modified_date" class="form-control" />
-                <span asp-validation-for="modified_date" class="text-danger"></span>
-            </div>
+          
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
