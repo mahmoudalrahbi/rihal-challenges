@@ -2,6 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using School.Repistory;
 using School.Repistory.Interfaces;
+using School.Services;
+using School.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +12,10 @@ builder.Services.AddDbContext<MvcSchoolContext>(options =>
 
 //add repistories
 builder.Services.AddTransient<IClassRepository, ClassRepository>();
+
+
+//add services
+builder.Services.AddTransient<IClassService, ClassService>();
 
 
 
