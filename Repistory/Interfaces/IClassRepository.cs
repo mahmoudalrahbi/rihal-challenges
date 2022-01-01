@@ -2,7 +2,7 @@ using School.Models;
 
 namespace School.Repistory.Interfaces
 {
-    public interface  IClassesRepository
+    public interface  IClassRepository
     {
 
         Class getClass(int id);

@@ -9,7 +9,7 @@ builder.Services.AddDbContext<MvcSchoolContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("MvcSchoolContext")));
 
 //add repistories
-builder.Services.AddTransient<IClassesRepository, ClassesRepository>();
+builder.Services.AddTransient<IClassRepository, ClassRepository>();
 
 
 

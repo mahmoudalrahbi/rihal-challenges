@@ -4,12 +4,12 @@ using School.Repistory.Interfaces;
 
 namespace School.Repistory
 {
-    public class ClassesRepository : IClassesRepository
+    public class ClassRepository : IClassRepository
     {
         private readonly MvcSchoolContext _context;
 
 
-         public ClassesRepository(MvcSchoolContext context)
+         public ClassRepository(MvcSchoolContext context)
         {
             _context = context;
         }
