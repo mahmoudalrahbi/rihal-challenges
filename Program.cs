@@ -10,14 +10,16 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<MvcSchoolContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("MvcSchoolContext")));
 
-//add repistories
+//add repistories layer
 builder.Services.AddTransient<IClassRepository, ClassRepository>();
 builder.Services.AddTransient<ICountryRepository, CountryRepository>();
+builder.Services.AddTransient<IStudentRepository, StudentRepository>();
 
 
-//add services
+//add services layer
 builder.Services.AddTransient<IClassService, ClassService>();
 builder.Services.AddTransient<ICountryService, CountryService>();
+builder.Services.AddTransient<IStudentService, StudentService>();
 
 
 
