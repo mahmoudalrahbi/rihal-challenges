@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace School.Models
 {
@@ -6,6 +7,7 @@ namespace School.Models
     {
         public int id { get; set; }
 
+        [Display(Name = "Country Name")]
         public string? name { get; set; }
     }
 }
