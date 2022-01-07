@@ -7,23 +7,26 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using School.Models;
+using School.Services.Interfaces;
 
 namespace School.Controllers
 {
     public class StudentController : Controller
     {
-        private readonly MvcSchoolContext _context;
-
-        public StudentController(MvcSchoolContext context)
+        private readonly IStudentService _studentService;
+        private readonly IClassService _classService;
+         private readonly ICountryService _countyService;
+        public StudentController(IStudentService studentService, IClassService classService, ICountryService countyService)
         {
-            _context = context;
+            _studentService = studentService;
+            _classService = classService;
+            _countyService = countyService;
         }
 
         // GET: Student
         public async Task<IActionResult> Index()
         {
-            var mvcSchoolContext = _context.Students.Include(s => s.Classes).Include(s => s.Countries);
-            return View(await mvcSchoolContext.ToListAsync());
+            return View(_studentService.getAllStudents());
         }
 
         // GET: Student/Details/5
@@ -34,10 +37,7 @@ namespace School.Controllers
                 return NotFound();
             }
 
-            var student = await _context.Students
-                .Include(s => s.Classes)
-                .Include(s => s.Countries)
-                .FirstOrDefaultAsync(m => m.id == id);
+            var student = _studentService.getStudent((int)id);
             if (student == null)
             {
                 return NotFound();
@@ -49,8 +49,8 @@ namespace School.Controllers
         // GET: Student/Create
         public IActionResult Create()
         {
-            ViewData["ClassesId"] = new SelectList(_context.Classes, "id", "id");
-            ViewData["CountriesId"] = new SelectList(_context.Countries, "id", "id");
+            ViewData["ClassesId"] = new SelectList(_classService.getAllClasses(), "id", "class_name");
+            ViewData["CountriesId"] = new SelectList(_countyService.getAllCoiuntries(), "id", "name");
             return View();
         }
 
@@ -63,12 +63,11 @@ namespace School.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(student);
-                await _context.SaveChangesAsync();
+                _studentService.addStudent(student);
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ClassesId"] = new SelectList(_context.Classes, "id", "id", student.ClassesId);
-            ViewData["CountriesId"] = new SelectList(_context.Countries, "id", "id", student.CountriesId);
+           ViewData["ClassesId"] = new SelectList(_classService.getAllClasses(), "id", "class_name", student.ClassesId);
+            ViewData["CountriesId"] = new SelectList(_countyService.getAllCoiuntries(), "id", "name", student.CountriesId);
             return View(student);
         }
 
@@ -80,13 +79,13 @@ namespace School.Controllers
                 return NotFound();
             }
 
-            var student = await _context.Students.FindAsync(id);
+            var student = _studentService.getStudent((int)id);
             if (student == null)
             {
                 return NotFound();
             }
-            ViewData["ClassesId"] = new SelectList(_context.Classes, "id", "id", student.ClassesId);
-            ViewData["CountriesId"] = new SelectList(_context.Countries, "id", "id", student.CountriesId);
+            ViewData["ClassesId"] = new SelectList(_classService.getAllClasses(), "id", "class_name", student.ClassesId);
+            ViewData["CountriesId"] = new SelectList(_countyService.getAllCoiuntries(), "id", "name", student.CountriesId);
             return View(student);
         }
 
@@ -106,8 +105,7 @@ namespace School.Controllers
             {
                 try
                 {
-                    _context.Update(student);
-                    await _context.SaveChangesAsync();
+                    _studentService.editStudent(student);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -122,8 +120,8 @@ namespace School.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ClassesId"] = new SelectList(_context.Classes, "id", "id", student.ClassesId);
-            ViewData["CountriesId"] = new SelectList(_context.Countries, "id", "id", student.CountriesId);
+             ViewData["ClassesId"] = new SelectList(_classService.getAllClasses(), "id", "class_name", student.ClassesId);
+            ViewData["CountriesId"] = new SelectList(_countyService.getAllCoiuntries(), "id", "name", student.CountriesId);
             return View(student);
         }
 
@@ -135,10 +133,7 @@ namespace School.Controllers
                 return NotFound();
             }
 
-            var student = await _context.Students
-                .Include(s => s.Classes)
-                .Include(s => s.Countries)
-                .FirstOrDefaultAsync(m => m.id == id);
+            var student = _studentService.getStudent((int)id);
             if (student == null)
             {
                 return NotFound();
@@ -152,15 +147,13 @@ namespace School.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var student = await _context.Students.FindAsync(id);
-            _context.Students.Remove(student);
-            await _context.SaveChangesAsync();
+            _studentService.deleteStudent((int)id);
             return RedirectToAction(nameof(Index));
         }
 
         private bool StudentExists(int id)
         {
-            return _context.Students.Any(e => e.id == id);
+            return _studentService.StudentExists((int)id);
         }
     }
 }

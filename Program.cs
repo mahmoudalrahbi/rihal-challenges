@@ -20,7 +20,7 @@ builder.Services.AddTransient<IStudentRepository, StudentRepository>();
 builder.Services.AddTransient<IClassService, ClassService>();
 builder.Services.AddTransient<ICountryService, CountryService>();
 builder.Services.AddTransient<IStudentService, StudentService>();
-
+builder.Services.AddTransient<IStatisticsService, StatisticsService>();
 
 
 // Add services to the container.

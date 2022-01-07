@@ -9,7 +9,8 @@ namespace School.Models
         public string? name { get; set; }
 
         [DataType(DataType.Date)]
-        public DateOnly date_of_birth { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
+        public DateTime date_of_birth { get; set; }
 
         [Column("class_id")]
         public int ClassesId { get; set; }

@@ -12,5 +12,8 @@ namespace School.Repistory.Interfaces
         void deleteStudent(int id);
 
         bool StudentExists(int id);
+        Task<List<ChartModel>> getStudentsBerClassAsync();
+
+        Task<List<ChartModel>> getStudentsBerCountryAsync();
     }
 }

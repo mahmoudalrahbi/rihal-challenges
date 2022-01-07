@@ -1,6 +1,6 @@
 using School.Models;
 using School.Repistory.Interfaces;
-
+using Microsoft.EntityFrameworkCore;
 
 namespace School.Repistory
 {
@@ -38,17 +38,49 @@ namespace School.Repistory
 
         public List<Student> getAllStudents()
         {
-            return  _context.Students.ToList();
+            return  _context.Students
+                .Include(s => s.Classes)
+                .Include(s => s.Countries).ToList();
         }
 
         public Student getStudent(int id)
         {
-            return  _context.Students.Find(id);
+            return  _context.Students
+                .Include(s => s.Classes)
+                .Include(s => s.Countries)
+                .FirstOrDefault(m => m.id == id);
         }
 
         public bool StudentExists(int id)
         {
              return _context.Students.Any(e => e.id == id);
+        }
+
+
+        public async Task<List<ChartModel>> getStudentsBerClassAsync()
+        {
+            var students = await  _context.Students
+                    .Include(s=>s.Classes)
+                    .GroupBy(s=>s.Classes.class_name)
+                    .Select(s=>new ChartModel(s.Key.ToString(), s.Count()))
+                    .ToListAsync();
+
+                    
+
+            return students;
+        }
+
+        public async Task<List<ChartModel>> getStudentsBerCountryAsync()
+        {
+            var students = await  _context.Students
+                    .Include(s=>s.Countries)
+                    .GroupBy(s=>s.Countries.name)
+                    .Select(s=>new ChartModel(s.Key.ToString(), s.Count()))
+                    .ToListAsync();
+
+                    
+
+            return students;
         }
     }
 }

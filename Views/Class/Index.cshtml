@@ -4,10 +4,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Classes</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-outline-primary" asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -15,12 +15,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.class_name)
             </th>
-            <th>
+            @* <th>
                 @Html.DisplayNameFor(model => model.created_date)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.modified_date)
-            </th>
+            </th> *@
             <th></th>
         </tr>
     </thead>
@@ -30,16 +30,16 @@
             <td>
                 @Html.DisplayFor(modelItem => item.class_name)
             </td>
-            <td>
+            @* <td>
                 @Html.DisplayFor(modelItem => item.created_date)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.modified_date)
-            </td>
+            </td> *@
             <td>
-                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                <a class="btn btn-outline-secondary" asp-action="Edit"  asp-route-id="@item.id">Edit</a> 
+                <a class="btn btn-outline-success" asp-action="Details" asp-route-id="@item.id">Details</a> 
+                <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.id">Delete</a>
             </td>
         </tr>
 }
