@@ -6,5 +6,7 @@ namespace School.Models
         public List<ChartModel> studentsPerCountries{get;set;}
 
         public List<ChartModel> studentsPerClasses{get;set;}
+
+        public int averageAge{get;set;}
     }
 }

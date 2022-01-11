@@ -15,5 +15,6 @@ namespace School.Repistory.Interfaces
         Task<List<ChartModel>> getstudentsPerClassAsync();
 
         Task<List<ChartModel>> getStudentsPerCountryAsync();
+         int getAverageAge();
     }
 }

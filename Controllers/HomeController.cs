@@ -22,11 +22,12 @@ public class HomeController : Controller
        
         var sCounties = await _statisticsService.getStudetnsPerCountry();
         var sClass = await _statisticsService.getStudentsPerClassAsync();
-
+        int avg = _statisticsService.getAverageAge();
 
         HomeSatatisticsViewModel viewModel = new HomeSatatisticsViewModel();
         viewModel.studentsPerCountries = sCounties;
         viewModel.studentsPerClasses = sClass;
+        viewModel.averageAge = avg;
 
         return View(viewModel);
     }

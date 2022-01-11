@@ -7,5 +7,7 @@ namespace School.Services.Interfaces
          Task<List<ChartModel>> getStudentsPerClassAsync();
          Task<List<ChartModel>> getStudetnsPerCountry();
 
+          int getAverageAge();
+
     }
 }

@@ -28,5 +28,10 @@ namespace School.Services
 
             return studentsPerCounties;
         }
+
+
+        public  int getAverageAge(){
+            return _studentRepository.getAverageAge();
+        }
     }
 }

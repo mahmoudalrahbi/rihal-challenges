@@ -8,6 +8,8 @@
 
   var classes = Json.Serialize(Model.studentsPerClasses.Select(x => x.category_name).ToList());
   var studPerClasses = Json.Serialize(Model.studentsPerClasses.Select(x => x.count).ToList());
+
+  var avg = Json.Serialize(Model.averageAge);
   @* var sudentsPerCountries = Json.Serialize(Model.Select(x =>new {lable= x.category_name,data=x.count}).ToList()); *@
 }
 
@@ -19,6 +21,12 @@
 
 <div class="text-center row d-flex justify-content-center">
 
+<div class=" col-md-6 mx-md-1 my-4">
+  <div class="card py-4">
+    <h6>Average age of students is @avg Years</h6>
+  </div>
+  </div>
+
 <div class="card col-md-11 mx-md-2">
   <div class="chartStyle" >
     <canvas id="countriesChart"></canvas>
@@ -27,7 +35,7 @@
   <div class="card col-md-11 mx-md-2 my-5">
   <div class="chartStyle">
     <canvas id="classesChart"></canvas>
-  </div> 
+  </div>  
 </div>
 </div> 
 

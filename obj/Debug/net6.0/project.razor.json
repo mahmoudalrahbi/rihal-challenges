@@ -16323,11 +16323,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\rihalChallange\\School\\Views\\Home\\Privacy.cshtml",
-      "TargetPath": "Views\\Home\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "d:\\rihalChallange\\School\\Views\\Country\\Index.cshtml",
       "TargetPath": "Views\\Country\\Index.cshtml",
       "FileKind": "mvc"
