@@ -15,38 +15,18 @@ namespace School.Services
         }
         public async Task<List<ChartModel>> getStudentsPerClassAsync()
         {
-            List<ChartModel> list = new List<ChartModel>();
 
-            var studentsBerClass = await _studentRepository.getStudentsBerClassAsync();
+            var studentsPerClass = await _studentRepository.getstudentsPerClassAsync();
 
-            if(studentsBerClass != null)
-            {
-                foreach(var s in studentsBerClass)
-                {
-                    Console.WriteLine(s.category_name +" ,"+ s.count);
-                    
-                }
-            }
-
-            return list;
+            return studentsPerClass;
         }
 
         public async Task<List<ChartModel>> getStudetnsPerCountry()
         {
-           List<ChartModel> list = new List<ChartModel>();
 
-            var studentsBerClass = await _studentRepository.getStudentsBerCountryAsync();
+            var studentsPerCounties = await _studentRepository.getStudentsPerCountryAsync();
 
-            if(studentsBerClass != null)
-            {
-                foreach(var s in studentsBerClass)
-                {
-                    Console.WriteLine(s.category_name +" ,"+ s.count);
-                    
-                }
-            }
-
-            return list;
+            return studentsPerCounties;
         }
     }
 }

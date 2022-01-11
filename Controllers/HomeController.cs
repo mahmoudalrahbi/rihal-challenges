@@ -19,8 +19,22 @@ public class HomeController : Controller
 
     public async Task<IActionResult> Index()
     {
-        var s = await _statisticsService.getStudetnsPerCountry();
-        return View();
+       
+        var sCounties = await _statisticsService.getStudetnsPerCountry();
+        var sClass = await _statisticsService.getStudentsPerClassAsync();
+
+
+        foreach (var item in sClass)
+        {
+             Console.WriteLine("item.category_name");
+            Console.WriteLine(item.category_name);
+        }
+
+        HomeSatatisticsViewModel viewModel = new HomeSatatisticsViewModel();
+        viewModel.studentsPerCountries = sCounties;
+        viewModel.studentsPerClasses = sClass;
+
+        return View(viewModel);
     }
 
     public IActionResult Privacy()

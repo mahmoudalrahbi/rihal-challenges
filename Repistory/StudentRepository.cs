@@ -57,7 +57,7 @@ namespace School.Repistory
         }
 
 
-        public async Task<List<ChartModel>> getStudentsBerClassAsync()
+        public async Task<List<ChartModel>> getstudentsPerClassAsync()
         {
             var students = await  _context.Students
                     .Include(s=>s.Classes)
@@ -70,7 +70,7 @@ namespace School.Repistory
             return students;
         }
 
-        public async Task<List<ChartModel>> getStudentsBerCountryAsync()
+        public async Task<List<ChartModel>> getStudentsPerCountryAsync()
         {
             var students = await  _context.Students
                     .Include(s=>s.Countries)

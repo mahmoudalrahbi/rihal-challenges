@@ -1,8 +1,109 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model School.Models.HomeSatatisticsViewModel
+
+@{
+  ViewData["Title"] = "Home Page";
+
+  var countries = Json.Serialize(Model.studentsPerCountries.Select(x => x.category_name).ToList());
+  var studPerCount = Json.Serialize(Model.studentsPerCountries.Select(x => x.count).ToList());
+
+  var classes = Json.Serialize(Model.studentsPerClasses.Select(x => x.category_name).ToList());
+  var studPerClasses = Json.Serialize(Model.studentsPerClasses.Select(x => x.count).ToList());
+  @* var sudentsPerCountries = Json.Serialize(Model.Select(x =>new {lable= x.category_name,data=x.count}).ToList()); *@
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<style>
+  .chartStyle{
+    height: 400px;
+  }
+</style>
+
+<div class="text-center row d-flex justify-content-center">
+
+<div class="card col-md-11 mx-md-2">
+  <div class="chartStyle" >
+    <canvas id="countriesChart"></canvas>
+  </div>
+  </div>
+  <div class="card col-md-11 mx-md-2 my-5">
+  <div class="chartStyle">
+    <canvas id="classesChart"></canvas>
+  </div> 
 </div>
+</div> 
+
+@section scripts{
+<script>
+  var countriesLables = @Html.Raw(countries);
+  var countiesValues = @Html.Raw(studPerCount);
+
+
+  const cLab = countriesLables;
+  const dataCountires = {
+    labels: cLab,
+    datasets: [{
+      label: 'Students for Every Country',
+      backgroundColor: 'rgb(255, 99, 132)',
+      borderColor: 'rgb(255, 99, 132)',
+      data: countiesValues,
+    }]
+  };
+
+  const configCountires = {
+    type: 'bar',
+    data: dataCountires,
+    options: {
+      maintainAspectRatio: false
+    }
+  };
+
+
+  const countriesChart = new Chart(
+    document.getElementById('countriesChart'),
+    configCountires
+  );
+  @* countriesChart.canvas.parentNode.style.height = '40px'; *@
+
+
+
+  var classesLables = @Html.Raw(classes);
+  var classesValues = @Html.Raw(studPerClasses);
+
+
+  const classLab = classesLables;
+  const dataClasses = {
+    labels: classLab,
+    datasets: [{
+      label: 'Students for Every Class',
+      backgroundColor: 'rgb(59, 182, 157)',
+      borderColor: 'rgb(59, 182, 157)',
+      data: classesValues,
+    }]
+  };
+
+  const configClasses = {
+    type: 'bar',
+    data: dataClasses,
+    options: {
+       maintainAspectRatio: false
+    }
+  };
+
+
+  const classesChart = new Chart(
+    document.getElementById('classesChart'),
+    configClasses
+  );
+
+
+
+  function getRandomColor() {
+    var letters = '0123456789ABCDEF'.split('');
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+       color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+ }
+
+</script>
+}
