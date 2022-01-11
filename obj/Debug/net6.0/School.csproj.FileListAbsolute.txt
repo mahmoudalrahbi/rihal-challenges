@@ -296,3 +296,5 @@ D:\rihalChallange\School\obj\Debug\net6.0\School.dll
 D:\rihalChallange\School\obj\Debug\net6.0\ref\School.dll
 D:\rihalChallange\School\obj\Debug\net6.0\School.pdb
 D:\rihalChallange\School\obj\Debug\net6.0\School.genruntimeconfig.cache
+D:\rihalChallange\School\bin\Debug\net6.0\Faker.Net.6.0.dll
+D:\rihalChallange\School\bin\Debug\net6.0\de-DE\Faker.Net.6.0.resources.dll

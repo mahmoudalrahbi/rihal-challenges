@@ -13,6 +13,13 @@ public class MvcSchoolContext : DbContext
     {
     }
 
+
+     protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+        
+    }
+
     public DbSet<School.Models.Country> Countries { get; set; }
 
     public DbSet<School.Models.Class> Classes { get; set; }

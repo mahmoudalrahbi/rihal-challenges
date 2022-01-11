@@ -4,6 +4,7 @@ using School.Repistory;
 using School.Repistory.Interfaces;
 using School.Services;
 using School.Services.Interfaces;
+using School.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,12 +22,32 @@ builder.Services.AddTransient<IClassService, ClassService>();
 builder.Services.AddTransient<ICountryService, CountryService>();
 builder.Services.AddTransient<IStudentService, StudentService>();
 builder.Services.AddTransient<IStatisticsService, StatisticsService>();
+builder.Services.AddTransient<ISeedDataService, SeedDataService>();
 
+//add DataSeeder 
+builder.Services.AddTransient<DataSeeder>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+SeedData(app);
+
+
+//Seed Data
+void SeedData(IHost app)
+{
+    var scopedFactory = app.Services.GetService<IServiceScopeFactory>();
+
+    using (var scope = scopedFactory.CreateScope())
+    {
+        var service = scope.ServiceProvider.GetService<DataSeeder>();
+        service.Seed();
+    }
+}
+
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

@@ -24,12 +24,6 @@ public class HomeController : Controller
         var sClass = await _statisticsService.getStudentsPerClassAsync();
 
 
-        foreach (var item in sClass)
-        {
-             Console.WriteLine("item.category_name");
-            Console.WriteLine(item.category_name);
-        }
-
         HomeSatatisticsViewModel viewModel = new HomeSatatisticsViewModel();
         viewModel.studentsPerCountries = sCounties;
         viewModel.studentsPerClasses = sClass;
