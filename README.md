@@ -22,5 +22,4 @@ For databse I use Sqlite database.
 ### FRONT END
 In the front end I use bootstrap 5 and chart js to drow the charts.
 
-# 
-# 
+ 
